@@ -1,102 +1,106 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Presentation</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-          <h2 style="color: aqua;">Canvas</h2>
-          <div style="display: flex; align-items: center; width: 800px; justify-content: space-between; margin-left: 60px;">
-            <img src="./img/canvasjslogo.png" alt="canvasjslogo" height="250px" width="250px">
-            <img src="./img/canvasLogo.png" alt="canvasLogo"  height="150px" width="450px">
-          </div>
-          <p>Vladislav Zhilinskiy</p>
-        </section>
-				<section>
-          <h2>Element Canvas</h2>
-          <pre style="margin-top: 70px;">
+  <title>Presentation</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2 style="color: aqua;">Canvas</h2>
+        <div
+          style="display: flex; align-items: center; width: 800px; justify-content: space-between; margin-left: 60px;">
+          <img src="./img/canvasjslogo.png" alt="canvasjslogo" height="250px" width="250px">
+          <img src="./img/canvasLogo.png" alt="canvasLogo" height="150px" width="450px">
+        </div>
+        <p>Vladislav Zhilinskiy</p>
+      </section>
+      <section>
+        <h2>Element Canvas</h2>
+        <pre style="margin-top: 70px;">
             <code data-trim data-line-numbers="1">
               &ltcanvas id="ctx" width="150" height="150"&gt&ltcanvas&gt
             </code>
           </pre>
-        </section>
-        <section>
-          <h3 style="text-transform: none;">getContext() method</h3>
-          <pre>
+      </section>
+      <section>
+        <h3 style="text-transform: none;">getContext() method</h3>
+        <pre>
             <code data-trim data-line-numbers="1">
               const ctx = document.querySelector('#ctx').getContext('2d');
             </code>
           </pre>
-          <pre>
+        <pre>
             <code class="fragment" data-fragment-index="1" style="margin-top: 80px;" data-trim data-line-numbers="1">
               const ctx = document.querySelector('#ctx').getContext('webgl');
             </code>
           </pre>
-          <a class="fragment" data-fragment-index="2" style="margin-top: 70px;" href="http://madebyevan.com/webgl-water/">http://madebyevan.com/webgl-water/</a>
-        </section>
-        <section>
-          <h2>
-            The canvas grid
-          </h2>
-          <img src="./img/Canvas_default_grid.png" alt="Canvas_default_grid" width="400" height="400">
-        </section>
-        <section>
-          <h2>Example rect</h2>
-          <pre>
+        <a class="fragment" data-fragment-index="2" style="margin-top: 70px;"
+          href="http://madebyevan.com/webgl-water/">http://madebyevan.com/webgl-water/</a>
+      </section>
+      <section>
+        <h2>
+          The canvas grid
+        </h2>
+        <img src="./img/Canvas_default_grid.png" alt="Canvas_default_grid" width="400" height="400">
+      </section>
+      <section>
+        <h2>Example rect</h2>
+        <pre>
             <code data-trim data-line-numbers="3-13">
               <canvas id="canvas" width="150" height="150"></canvas>
               <script>
-              function draw() {
-                const canvas = document.querySelector('#canvas');
-                if (canvas.getContext) {
-                  const ctx = canvas.getContext('2d');
-                  ctx.fillStyle = '#fff';
-                  ctx.strokeStyle = "#fff";
-                  ctx.fillRect(25,25,100,100);
-                  ctx.clearRect(45,45,60,60);
-                  ctx.strokeRect(50,50,50,50);
+                function draw() {
+                  const canvas = document.querySelector('#canvas');
+                  if (canvas.getContext) {
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = '#fff';
+                    ctx.strokeStyle = "#fff";
+                    ctx.fillRect(25, 25, 100, 100);
+                    ctx.clearRect(45, 45, 60, 60);
+                    ctx.strokeRect(50, 50, 50, 50);
+                  }
                 }
-              }
               </script> 
             </code>
           </pre>
-          <canvas id="canvas" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Example arc</h2>
-          <pre>
+        <canvas id="canvas" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Example arc</h2>
+        <pre>
             <code data-trim data-line-numbers="3-11">
               <canvas id="canvas" width="150" height="150"></canvas>
               <script>
-              function draw() {
-                const canvas = document.querySelector('#canvas');
-                if (canvas.getContext) {
-                  const ctx = canvas.getContext('2d');
-                  ctx.beginPath();
-                  ctx.strokeStyle = '#fff';
-                  ctx.arc(75,75,50,0,Math.PI*2,true);
-                  ctx.stroke(); // if we want a filled circle use ctx.fill()
+                function draw() {
+                  const canvas = document.querySelector('#canvas');
+                  if (canvas.getContext) {
+                    const ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#fff';
+                    ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+                    ctx.stroke(); // if we want a filled circle use ctx.fill()
+                  }
                 }
-              }
               </script>   
             </code>
           </pre>
-          <canvas id="canvas_arc" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Drawing lines</h2>
-          <p>beginPath()</p>
-          <pre>
+        <canvas id="canvas_arc" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Drawing lines</h2>
+        <p>beginPath()</p>
+        <pre>
             <code data-trim data-line-numbers="0-11">
               function draw() {
                 const canvas = document.querySelector('#canvas');
@@ -109,10 +113,10 @@
               }
             </code>
           </pre>
-        </section>
-        <section>
-          <p>closePath() VS fill()</p>
-          <pre>
+      </section>
+      <section>
+        <p>closePath() VS fill()</p>
+        <pre>
             <code data-trim data-line-numbers="0-11">
               function draw() {
                 const canvas = document.querySelector('#canvas');
@@ -126,10 +130,10 @@
               }
             </code>
           </pre>
-        </section>
-        <section>
-          <p>stroke()</p>
-          <pre>
+      </section>
+      <section>
+        <p>stroke()</p>
+        <pre>
             <code data-trim data-line-numbers="0-11">
               function draw() {
                 const canvas = document.querySelector('#canvas');
@@ -143,10 +147,10 @@
               }
             </code>
           </pre>
-        </section>
-        <section>
-          <p>moveTo()</p>
-          <pre>
+      </section>
+      <section>
+        <p>moveTo()</p>
+        <pre>
             <code data-trim data-line-numbers="0-50" style="width: 900px;">
               function draw() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -163,11 +167,11 @@
               }
             </code>
           </pre>
-          <canvas id="canvas_hurc" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Bezier curves</h2>
-          <pre>
+        <canvas id="canvas_hurc" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Bezier curves</h2>
+        <pre>
             <code data-trim data-line-numbers="" style="width: 950px;">
               function draw() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -185,11 +189,11 @@
               }
             </code>
           </pre>
-          <canvas id="canvas_curve" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Colors and gradients</h2>
-          <pre>
+        <canvas id="canvas_curve" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Colors and gradients</h2>
+        <pre>
             <code data-trim data-line-numbers="0-50" style="width: 950px; min-height: 410px;">
               function drawRedHeart() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -208,11 +212,11 @@
               }
             </code>
           </pre>
-          <canvas id="canvas_curve_red" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Transparency</h2>
-          <pre>
+        <canvas id="canvas_curve_red" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Transparency</h2>
+        <pre>
             <code data-trim data-line-numbers="0-50" style="width: 950px; min-height: 460px;">
               function drawRedHeart() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -233,11 +237,11 @@
               }
             </code>
           </pre>
-          <canvas id="canvas_trans" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Gradients</h2>
-          <pre>
+        <canvas id="canvas_trans" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Gradients</h2>
+        <pre>
             <code data-trim data-line-numbers="0-50"style="width: 950px; min-height: 500px;">
               function drawGradientHeart() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -259,28 +263,30 @@
               }
             </code>
           </pre>
-        </section>
-        <section>
-          <canvas id="canvas_gradient" width="150" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Images</h2>
-          <pre>
+      </section>
+      <section>
+        <canvas id="canvas_gradient" width="150" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Images</h2>
+        <pre>
             <code data-trim data-line-numbers="">
               var img = new Image();   // Create new img element
               img.src = 'myImage.png'; // Set source path	
             </code>
           </pre>
-          <p>drawImage(image, x, y)</p>
-          <span style="font-size: 25px; text-align: center;">Once the image loads, we can use drawImage() to render it on the canvas. Make sure the image loads before calling the method.</span>
-          <p>Scaling and slicing slicing</p>
-          <span style="font-size: 25px; text-align: center;">The image can also be scaled by using drawImage(image, x, y, width, height)
+        <p>drawImage(image, x, y)</p>
+        <span style="font-size: 25px; text-align: center;">Once the image loads, we can use drawImage() to render it on
+          the canvas. Make sure the image loads before calling the method.</span>
+        <p>Scaling and slicing slicing</p>
+        <span style="font-size: 25px; text-align: center;">The image can also be scaled by using drawImage(image, x, y,
+          width, height)
 
-            the image can be sliced by using drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</span>
-        </section>
-        <section>
-          <h2>Patterns</h2>
-          <pre>
+          the image can be sliced by using drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</span>
+      </section>
+      <section>
+        <h2>Patterns</h2>
+        <pre>
             <code data-trim data-line-numbers="" style="width: 950px;">
               function draw() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -298,13 +304,13 @@
               }	
             </code>
           </pre>
-        </section>
-        <section>
-          <canvas id="canvas_image" width="401" height="401"></canvas>
-        </section>
-        <section>
-          <h2>Text and text shadow</h2>
-          <pre>
+      </section>
+      <section>
+        <canvas id="canvas_image" width="401" height="401"></canvas>
+      </section>
+      <section>
+        <h2>Text and text shadow</h2>
+        <pre>
             <code data-trim data-line-numbers="">
               function drawText() {
                 const ctx = document.querySelector('#canvas').getContext('2d');
@@ -314,11 +320,11 @@
               }
             </code>
           </pre>
-          <canvas id="canvas_text" width="300" height="150"></canvas>
-        </section>
-        <section>
-          <h2>Text shadow example</h2>
-          <pre>
+        <canvas id="canvas_text" width="300" height="150"></canvas>
+      </section>
+      <section>
+        <h2>Text shadow example</h2>
+        <pre>
             <code data-trim data-line-numbers="">
               function drawText() {
                 const canvas = document.getElementById('canvas-text');
@@ -335,11 +341,11 @@
               }
             </code>
           </pre>
-          <canvas id="canvas_text_shadow" width="300" height="150"></canvas>
-        </section>
-        <section>
-          <p>measureText()</p>
-          <pre>
+        <canvas id="canvas_text_shadow" width="300" height="150"></canvas>
+      </section>
+      <section>
+        <p>measureText()</p>
+        <pre>
             <code data-trim data-line-numbers="">
               const canvas = document.getElementById('canvas');
               const ctx = canvas.getContext('2d');
@@ -348,375 +354,378 @@
               console.log(text.width);  // 56;
             </code>
           </pre>
-        </section>
-        <section>
-          <section class="chart">
-            <p class="chart__title">The popularity of programming languages</p>
-        
-            <form class="chart__data" action="#" method="POST">
-              <div class="chart__input-group">
-                <label class="chart__label" for="javascript">JavaScript</label>
-                <input class="chart__input input-field" type="number" name="javascript" id="javascript" min="0" max="100" required>
-                <span>%</span>
-              </div>
-        
-              <div class="chart__input-group">
-                <label class="chart__label" for="php">PHP</label>
-                <input class="chart__input input-field" type="number" name="php" id="php" min="0" max="100" required>
-                <span>%</span>
-              </div>
-        
-              <div class="chart__input-group">
-                <label class="chart__label" for="python">Python</label>
-                <input class="chart__input input-field" type="number" name="python" id="python" min="0" max="100" required>
-                <span>%</span>
-              </div>
-        
-              <input class="chart__submit-button input-field" type="submit" value="Показать график">
-            </form>
-        
-            <div class="chart__canvas-wrapper">
-              <canvas id="canvas__lie" width="500" height="250">
-                Браузер не поддерживает Canvas
-              </canvas>
-            </div>
-          </section>
-        </section>
-        <section style="display: flex; align-items: center;">
-          <canvas id="canvas_clock" width="140" height="140"></canvas>
-        </section>
-			</div>
-		</div>
+      </section>
+      <section>
+        <section class="chart">
+          <p class="chart__title">The popularity of programming languages</p>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			Reveal.initialize({
-				hash: true,
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-    <script>
-      function drawRect() {
-        const canvas = document.querySelector('#canvas');
-        if (canvas.getContext) {
-          const ctx = canvas.getContext('2d');
-          ctx.fillStyle = '#fff';
-          ctx.strokeStyle = "#fff";
-          ctx.fillRect(25,25,100,100);
-          ctx.clearRect(45,45,60,60);
-          ctx.strokeRect(50,50,50,50);
-        }
+          <form class="chart__data" action="#" method="POST">
+            <div class="chart__input-group">
+              <label class="chart__label" for="javascript">JavaScript</label>
+              <input class="chart__input input-field" type="number" name="javascript" id="javascript" min="0" max="100"
+                required>
+              <span>%</span>
+            </div>
+
+            <div class="chart__input-group">
+              <label class="chart__label" for="php">PHP</label>
+              <input class="chart__input input-field" type="number" name="php" id="php" min="0" max="100" required>
+              <span>%</span>
+            </div>
+
+            <div class="chart__input-group">
+              <label class="chart__label" for="python">Python</label>
+              <input class="chart__input input-field" type="number" name="python" id="python" min="0" max="100"
+                required>
+              <span>%</span>
+            </div>
+            <input class="chart__submit-button input-field" type="submit" value="Show graph">
+          </form>
+          <div class="chart__canvas-wrapper">
+            <canvas id="canvas__lie" width="500" height="250">
+            </canvas>
+          </div>
+        </section>
+      </section>
+      <section style="display: flex; align-items: center;">
+        <canvas id="canvas_clock" width="140" height="140"></canvas>
+      </section>
+      <section>
+        <h2>Thanks for attention!!!</h2>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+  <script>
+    function drawRect() {
+      const canvas = document.querySelector('#canvas');
+      if (canvas.getContext) {
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = "#fff";
+        ctx.fillRect(25, 25, 100, 100);
+        ctx.clearRect(45, 45, 60, 60);
+        ctx.strokeRect(50, 50, 50, 50);
       }
-      function drawArc() {
-        const canvas = document.querySelector('#canvas_arc');
-        if (canvas.getContext) {
-          const ctx = canvas.getContext('2d');
-          ctx.beginPath();
-          ctx.strokeStyle = '#fff';
-          ctx.arc(75,75,50,0,Math.PI*2,true);
-          ctx.stroke(); // if we want a filled circle use ctx.fill()
-        }
-      }
-      function drawHurc() {
-        const ctx = document.querySelector('#canvas_hurc').getContext('2d');
+    }
+    function drawArc() {
+      const canvas = document.querySelector('#canvas_arc');
+      if (canvas.getContext) {
+        const ctx = canvas.getContext('2d');
         ctx.beginPath();
         ctx.strokeStyle = '#fff';
-        ctx.arc(75,75,50,0,Math.PI*2,true); // Draw a circle
-        ctx.moveTo(110,75);
-        ctx.arc(75,75,35,0,Math.PI,false);   // Draw 2nd circle
-        ctx.moveTo(65,65);
-        ctx.arc(60,65,5,0,Math.PI*2,true);  // Draw 3rd circle
-        ctx.moveTo(95,65);
-        ctx.arc(90,65,5,0,Math.PI*2,true);  // Draw 4th circle
-        ctx.stroke();
+        ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+        ctx.stroke(); // if we want a filled circle use ctx.fill()
       }
-      function drawCurve() {
-        const ctx = document.querySelector('#canvas_curve').getContext('2d');
-        ctx.beginPath();
-        ctx.fillStyle = '#fff';
-        ctx.moveTo(75,40);
-        ctx.bezierCurveTo(75,37,70,25,50,25);
-        ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
-        ctx.bezierCurveTo(20,80,40,102,75,120);
-        ctx.bezierCurveTo(110,102,130,80,130,62.5);
-        ctx.bezierCurveTo(130,62.5,130,25,100,25);
-        ctx.bezierCurveTo(85,25,75,37,75,40);
-        ctx.fill();
-      }
-      function drawRedHeart() {
-        const ctx = document.querySelector('#canvas_curve_red').getContext('2d');
-        ctx.beginPath();
-        ctx.moveTo(75,40);
-        ctx.bezierCurveTo(75,37,70,25,50,25);
-        ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
-        ctx.bezierCurveTo(20,80,40,102,75,120);
-        ctx.bezierCurveTo(110,102,130,80,130,62.5);
-        ctx.bezierCurveTo(130,62.5,130,25,100,25);
-        ctx.bezierCurveTo(85,25,75,37,75,40);
-        ctx.fillStyle = "red";
-        ctx.strokeStyle = "#000000";
-        ctx.fill();
-        ctx.stroke();
-      }
-      function drawTransHeart() {
-        const ctx = document.querySelector('#canvas_trans').getContext('2d');
-        ctx.fillStyle = "blue";
-        ctx.fillRect(50,50,100,50);
-        ctx.beginPath();
-        ctx.moveTo(75,40);
-        ctx.bezierCurveTo(75,37,70,25,50,25);
-        ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
-        ctx.bezierCurveTo(20,80,40,102,75,120);
-        ctx.bezierCurveTo(110,102,130,80,130,62.5);
-        ctx.bezierCurveTo(130,62.5,130,25,100,25);
-        ctx.bezierCurveTo(85,25,75,37,75,40);
-        ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
-        ctx.strokeStyle = "#000000";
-        ctx.fill();
-        ctx.stroke();
-      }
-      function drawGradientHeart() {
-        const ctx = document.querySelector('#canvas_gradient').getContext('2d');
-        const lineargradient = ctx.createLinearGradient(0,0,150,150);
-        lineargradient.addColorStop(0,'white');
-        lineargradient.addColorStop(1,'black'); 
-        ctx.beginPath();
-        ctx.moveTo(75,40);
-        ctx.bezierCurveTo(75,37,70,25,50,25);
-        ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
-        ctx.bezierCurveTo(20,80,40,102,75,120);
-        ctx.bezierCurveTo(110,102,130,80,130,62.5);
-        ctx.bezierCurveTo(130,62.5,130,25,100,25);
-        ctx.bezierCurveTo(85,25,75,37,75,40);
-        ctx.fillStyle = lineargradient;
-        ctx.fillStroke = "red";
-        ctx.fill();
-        ctx.stroke();   
-      }
-      function drawImage() {
-        const ctx = document.querySelector('#canvas_image').getContext('2d');
-              
-        // create new image object to use as pattern
-        const img = new Image();
-        img.src = 'img/js.png';
-        img.onload = function() {
-          // create pattern
-          const patern = ctx.createPattern(img,'repeat');
-          ctx.fillStyle = patern;
-          ctx.fillRect(0,0,401,401);
-              
-        }
-      }
-      function drawText() {
-        const ctx = document.querySelector('#canvas_text').getContext('2d');
-        ctx.font = "50px SapientSansLightItalic";
-        ctx.fillStyle = "#FF0000";
-        ctx.fillText ("Sapient Nitro", 0, 80);
-      }
-      function drawShadowText() {
-        const canvas = document.getElementById('canvas_text_shadow');
-        if (canvas.getContext){
-          const ctx = canvas.getContext('2d');
-          ctx.shadowOffsetX = 2;
-          ctx.shadowOffsetY = 2;
-          ctx.shadowBlur = 2;
-          ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-          ctx.font = "50px SapientSansLightItalic";
-          ctx.fillStyle = "#FF0000";
-          ctx.fillText ("Sapient Nitro", 0, 80);
-        }
-      }
-      function graph() {
-        const MAX_PERCENTAGE = 100;
-
-const COLORS = [
-  `#b3d5fc`,
-  `#98d9d9`,
-  `#ede493`
-];
-
-const BarSize = {
-  MAX_HEIGHT: 190,
-  WIDTH: 50
-};
-
-const BarCoordinate = {
-  INITIAL_X: 80,
-  INITIAL_Y: 220
-}
-
-const Font = {
-  SIZE: `18px`,
-  FAMILY: `Tahoma`
-};
-
-const LabelCoordinate = {
-  INITIAL_X: 30,
-  INITIAL_Y: 70
-}
-
-const Gap = {
-  HORIZONTAL: 100,
-  VERTICAL: 30
-}
-
-const formElement = document.querySelector(`.chart__data`);
-const inputElements = formElement.querySelectorAll(`.chart__input`);
-
-const getData = (inputElements) => {
-  return Array.from(inputElements).map((input, index) => ({
-    name: input.name,
-    value: input.value,
-    color: COLORS[index]
-  }));
-};
-
-const canvas = document.querySelector(`#canvas__lie`);
-const ctx = canvas.getContext(`2d`);
-
-const renderChart = (items) => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  let currentLabelY = LabelCoordinate.INITIAL_Y;
-  let currentBarX = BarCoordinate.INITIAL_X;
-  const gapBetweenBars = BarSize.WIDTH + Gap.HORIZONTAL;
-
-  for (const item of items) {
-    const barHeight = (item.value * BarSize.MAX_HEIGHT) / MAX_PERCENTAGE;
-    
-    ctx.fillStyle = item.color;
-    ctx.font = `${Font.SIZE} ${Font.FAMILY}`;
-    ctx.save();
-    ctx.translate(0, canvas.height);
-    ctx.rotate(-Math.PI/2);
-    ctx.fillText(item.name.toUpperCase(), LabelCoordinate.INITIAL_X, currentLabelY);
-    ctx.restore();
-    ctx.fillRect(currentBarX, BarCoordinate.INITIAL_Y, BarSize.WIDTH, -barHeight);
-    
-    currentBarX += gapBetweenBars;
-    currentLabelY += gapBetweenBars;
-  }
-};
-
-formElement.addEventListener(`submit`, (evt) => {
-  evt.preventDefault();
-  renderChart(getData(inputElements));
-  formElement.reset();
-});
-
-      }
-      drawRect();
-      drawArc();
-      drawHurc();
-      drawCurve();
-      drawRedHeart();
-      drawTransHeart();
-      drawGradientHeart();
-      drawImage();
-      drawText();
-      drawShadowText();
-      graph();
-      function clock(){
-  var now = new Date();
-  var ctx = document.getElementById('canvas_clock').getContext('2d');
-  ctx.save();
-  ctx.clearRect(0,0,150,150);
-  ctx.translate(75,75);
-  ctx.scale(0.4,0.4);
-  ctx.rotate(-Math.PI/2);
-  ctx.strokeStyle = "#fff";
-  ctx.fillStyle = "white";
-  ctx.lineWidth = 8;
-  ctx.lineCap = "round";
-
-  // Hour marks
-  ctx.save();
-  for (var i=0;i<12;i++){
-    ctx.beginPath();
-    ctx.rotate(Math.PI/6);
-    ctx.moveTo(100,0);
-    ctx.lineTo(120,0);
-    ctx.stroke();
-  }
-  ctx.restore();
-
-  // Minute marks
-  ctx.save();
-  ctx.lineWidth = 5;
-  for (i=0;i<60;i++){
-    if (i%5!=0) {
+    }
+    function drawHurc() {
+      const ctx = document.querySelector('#canvas_hurc').getContext('2d');
       ctx.beginPath();
-      ctx.moveTo(117,0);
-      ctx.lineTo(120,0);
+      ctx.strokeStyle = '#fff';
+      ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Draw a circle
+      ctx.moveTo(110, 75);
+      ctx.arc(75, 75, 35, 0, Math.PI, false);   // Draw 2nd circle
+      ctx.moveTo(65, 65);
+      ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Draw 3rd circle
+      ctx.moveTo(95, 65);
+      ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Draw 4th circle
       ctx.stroke();
     }
-    ctx.rotate(Math.PI/30);
-  }
-  ctx.restore();
+    function drawCurve() {
+      const ctx = document.querySelector('#canvas_curve').getContext('2d');
+      ctx.beginPath();
+      ctx.fillStyle = '#fff';
+      ctx.moveTo(75, 40);
+      ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+      ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+      ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+      ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+      ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+      ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+      ctx.fill();
+    }
+    function drawRedHeart() {
+      const ctx = document.querySelector('#canvas_curve_red').getContext('2d');
+      ctx.beginPath();
+      ctx.moveTo(75, 40);
+      ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+      ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+      ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+      ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+      ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+      ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+      ctx.fillStyle = "red";
+      ctx.strokeStyle = "#000000";
+      ctx.fill();
+      ctx.stroke();
+    }
+    function drawTransHeart() {
+      const ctx = document.querySelector('#canvas_trans').getContext('2d');
+      ctx.fillStyle = "blue";
+      ctx.fillRect(50, 50, 100, 50);
+      ctx.beginPath();
+      ctx.moveTo(75, 40);
+      ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+      ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+      ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+      ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+      ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+      ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+      ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
+      ctx.strokeStyle = "#000000";
+      ctx.fill();
+      ctx.stroke();
+    }
+    function drawGradientHeart() {
+      const ctx = document.querySelector('#canvas_gradient').getContext('2d');
+      const lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
+      lineargradient.addColorStop(0, 'white');
+      lineargradient.addColorStop(1, 'black');
+      ctx.beginPath();
+      ctx.moveTo(75, 40);
+      ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+      ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+      ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+      ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+      ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+      ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+      ctx.fillStyle = lineargradient;
+      ctx.fillStroke = "red";
+      ctx.fill();
+      ctx.stroke();
+    }
+    function drawImage() {
+      const ctx = document.querySelector('#canvas_image').getContext('2d');
 
-  var sec = now.getSeconds();
-  var min = now.getMinutes();
-  var hr  = now.getHours();
-  hr = hr>=12 ? hr-12 : hr;
+      // create new image object to use as pattern
+      const img = new Image();
+      img.src = 'img/js.png';
+      img.onload = function () {
+        // create pattern
+        const patern = ctx.createPattern(img, 'repeat');
+        ctx.fillStyle = patern;
+        ctx.fillRect(0, 0, 401, 401);
 
-  ctx.fillStyle = "#fff";
+      }
+    }
+    function drawText() {
+      const ctx = document.querySelector('#canvas_text').getContext('2d');
+      ctx.font = "50px SapientSansLightItalic";
+      ctx.fillStyle = "#FF0000";
+      ctx.fillText("Sapient Nitro", 0, 80);
+    }
+    function drawShadowText() {
+      const canvas = document.getElementById('canvas_text_shadow');
+      if (canvas.getContext) {
+        const ctx = canvas.getContext('2d');
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+        ctx.font = "50px SapientSansLightItalic";
+        ctx.fillStyle = "#FF0000";
+        ctx.fillText("Sapient Nitro", 0, 80);
+      }
+    }
+    function graph() {
+      const MAX_PERCENTAGE = 100;
 
-  // write Hours
-  ctx.save();
-  ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
-  ctx.lineWidth = 14;
-  ctx.beginPath();
-  ctx.moveTo(-20,0);
-  ctx.lineTo(80,0);
-  ctx.stroke();
-  ctx.restore();
+      const COLORS = [
+        `#b3d5fc`,
+        `#98d9d9`,
+        `#ede493`
+      ];
 
-  // write Minutes
-  ctx.save();
-  ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
-  ctx.lineWidth = 10;
-  ctx.beginPath();
-  ctx.moveTo(-28,0);
-  ctx.lineTo(112,0);
-  ctx.stroke();
-  ctx.restore();
+      const BarSize = {
+        MAX_HEIGHT: 190,
+        WIDTH: 50
+      };
 
-  // Write seconds
-  ctx.save();
-  ctx.rotate(sec * Math.PI/30);
-  ctx.strokeStyle = "#D40000";
-  ctx.fillStyle = "#D40000";
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  ctx.moveTo(-30,0);
-  ctx.lineTo(83,0);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0,0,10,0,Math.PI*2,true);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(95,0,10,0,Math.PI*2,true);
-  ctx.stroke();
-  ctx.fillStyle = "#fff";
-  ctx.arc(0,0,3,0,Math.PI*2,true);
-  ctx.fill();
-  ctx.restore();
+      const BarCoordinate = {
+        INITIAL_X: 80,
+        INITIAL_Y: 220
+      }
 
-  ctx.beginPath();
-  ctx.lineWidth = 14;
-  ctx.strokeStyle = '#325FA2';
-  ctx.arc(0,0,142,0,Math.PI*2,true);
-  ctx.stroke();
+      const Font = {
+        SIZE: `18px`,
+        FAMILY: `Tahoma`
+      };
 
-  ctx.restore();
+      const LabelCoordinate = {
+        INITIAL_X: 30,
+        INITIAL_Y: 70
+      }
 
-  window.requestAnimationFrame(clock);
-}
+      const Gap = {
+        HORIZONTAL: 100,
+        VERTICAL: 30
+      }
 
-window.requestAnimationFrame(clock);
-      </script>
-	</body>
+      const formElement = document.querySelector(`.chart__data`);
+      const inputElements = formElement.querySelectorAll(`.chart__input`);
+
+      const getData = (inputElements) => {
+        return Array.from(inputElements).map((input, index) => ({
+          name: input.name,
+          value: input.value,
+          color: COLORS[index]
+        }));
+      };
+
+      const canvas = document.querySelector(`#canvas__lie`);
+      const ctx = canvas.getContext(`2d`);
+
+      const renderChart = (items) => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let currentLabelY = LabelCoordinate.INITIAL_Y;
+        let currentBarX = BarCoordinate.INITIAL_X;
+        const gapBetweenBars = BarSize.WIDTH + Gap.HORIZONTAL;
+
+        for (const item of items) {
+          const barHeight = (item.value * BarSize.MAX_HEIGHT) / MAX_PERCENTAGE;
+
+          ctx.fillStyle = item.color;
+          ctx.font = `${Font.SIZE} ${Font.FAMILY}`;
+          ctx.save();
+          ctx.translate(0, canvas.height);
+          ctx.rotate(-Math.PI / 2);
+          ctx.fillText(item.name.toUpperCase(), LabelCoordinate.INITIAL_X, currentLabelY);
+          ctx.restore();
+          ctx.fillRect(currentBarX, BarCoordinate.INITIAL_Y, BarSize.WIDTH, -barHeight);
+
+          currentBarX += gapBetweenBars;
+          currentLabelY += gapBetweenBars;
+        }
+      };
+
+      formElement.addEventListener(`submit`, (evt) => {
+        evt.preventDefault();
+        renderChart(getData(inputElements));
+        formElement.reset();
+      });
+
+    }
+    drawRect();
+    drawArc();
+    drawHurc();
+    drawCurve();
+    drawRedHeart();
+    drawTransHeart();
+    drawGradientHeart();
+    drawImage();
+    drawText();
+    drawShadowText();
+    graph();
+    function clock() {
+      var now = new Date();
+      var ctx = document.getElementById('canvas_clock').getContext('2d');
+      ctx.save();
+      ctx.clearRect(0, 0, 150, 150);
+      ctx.translate(75, 75);
+      ctx.scale(0.4, 0.4);
+      ctx.rotate(-Math.PI / 2);
+      ctx.strokeStyle = "#fff";
+      ctx.fillStyle = "white";
+      ctx.lineWidth = 8;
+      ctx.lineCap = "round";
+
+      // Hour marks
+      ctx.save();
+      for (var i = 0; i < 12; i++) {
+        ctx.beginPath();
+        ctx.rotate(Math.PI / 6);
+        ctx.moveTo(100, 0);
+        ctx.lineTo(120, 0);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // Minute marks
+      ctx.save();
+      ctx.lineWidth = 5;
+      for (i = 0; i < 60; i++) {
+        if (i % 5 != 0) {
+          ctx.beginPath();
+          ctx.moveTo(117, 0);
+          ctx.lineTo(120, 0);
+          ctx.stroke();
+        }
+        ctx.rotate(Math.PI / 30);
+      }
+      ctx.restore();
+
+      var sec = now.getSeconds();
+      var min = now.getMinutes();
+      var hr = now.getHours();
+      hr = hr >= 12 ? hr - 12 : hr;
+
+      ctx.fillStyle = "#fff";
+
+      // write Hours
+      ctx.save();
+      ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) * sec)
+      ctx.lineWidth = 14;
+      ctx.beginPath();
+      ctx.moveTo(-20, 0);
+      ctx.lineTo(80, 0);
+      ctx.stroke();
+      ctx.restore();
+
+      // write Minutes
+      ctx.save();
+      ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec)
+      ctx.lineWidth = 10;
+      ctx.beginPath();
+      ctx.moveTo(-28, 0);
+      ctx.lineTo(112, 0);
+      ctx.stroke();
+      ctx.restore();
+
+      // Write seconds
+      ctx.save();
+      ctx.rotate(sec * Math.PI / 30);
+      ctx.strokeStyle = "#D40000";
+      ctx.fillStyle = "#D40000";
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.moveTo(-30, 0);
+      ctx.lineTo(83, 0);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+      ctx.stroke();
+      ctx.fillStyle = "#fff";
+      ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.lineWidth = 14;
+      ctx.strokeStyle = '#325FA2';
+      ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+      ctx.stroke();
+
+      ctx.restore();
+
+      window.requestAnimationFrame(clock);
+    }
+
+    window.requestAnimationFrame(clock);
+  </script>
+</body>
+
 </html>
